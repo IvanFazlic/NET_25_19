@@ -1,0 +1,84 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:simpleType name="restrikcija1">  
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+    </xs:restriction>  
+</xs:simpleType>
+<xs:simpleType name="restrikcija2">  
+    <xs:restriction base="xs:string">  
+        <xs:pattern value="([A-Za-z._0-9]{5,30}@gmail.com)|([A-Za-z._0-9]{5,30}@yahoo.com)|([A-Za-z._0-9]{5,30}@hotmail.com)"></xs:pattern>  
+    </xs:restriction>  
+</xs:simpleType>
+  <xs:element name="Oglasi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Oglas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Kategorija"/>
+              <xs:element name="DatumIstekaOglasa">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="(0[1-9]|1[0-9]|2[0-9]|3[0-1]).(0[1-9]|1[0-2]).(202[3-9]|20[3-9][0-9])."/>
+                    </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cena">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="restrikcija1">
+                            <xs:attribute name="valuta" default="din">
+                                <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="din"/>
+                                    <xs:enumeration value="eur"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                            </xs:attribute>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TekstOglasa">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="([a-zA-Z0-9 .,-?!]){10,180}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TagoviOglasa" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Tag" maxOccurs="unbounded" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Prodavac" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ElektronskaPosta" maxOccurs="unbounded" minOccurs="0">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="restrikcija2">
+                                    <xs:attribute name="tip" use="required">
+                                        <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="sluzbena"/>
+                                            <xs:enumeration value="privatna"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
