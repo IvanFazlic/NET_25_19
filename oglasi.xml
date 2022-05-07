@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE Oglasi SYSTEM "oglasi.dtd"> -->
+<!-- <Oglasi xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="oglasi.xsd"> -->
+ <Oglasi>
+    <Oglas>
+        <Kategorija>Automobili</Kategorija>
+        <DatumIstekaOglasa>01.02.2023.</DatumIstekaOglasa>
+        <Cena valuta="din">5000</Cena>
+        <TekstOglasa>Neki tekst</TekstOglasa>
+        <TagoviOglasa>
+            <Tag>Neki</Tag>
+            <Tag>Neki</Tag>
+        </TagoviOglasa>
+        <Prodavac>
+            <ElektronskaPosta tip="sluzbena">lirahi2902@hotmail.com</ElektronskaPosta>
+            <ElektronskaPosta tip="privatna">fazlic.ivan00@yahoo.com</ElektronskaPosta>
+            <ElektronskaPosta tip="sluzbena">nekimejl@hotmail.com</ElektronskaPosta>
+            <ElektronskaPosta tip="privatna">miloradpavlovic12@gmail.com</ElektronskaPosta>
+        </Prodavac>
+    </Oglas>
+</Oglasi>
