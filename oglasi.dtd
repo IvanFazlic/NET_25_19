@@ -1,0 +1,12 @@
+<!ELEMENT Oglasi (Oglas+)>
+<!ELEMENT Oglas (Kategorija,DatumIstekaOglasa,Cena,TekstOglasa,TagoviOglasa*,Prodavac+)>
+<!ELEMENT Kategorija ANY>
+<!ELEMENT DatumIstekaOglasa (#PCDATA)>
+<!ELEMENT Cena (#PCDATA)>
+<!ATTLIST Cena valuta (din) "din">
+<!ELEMENT TekstOglasa (#PCDATA)>
+<!ELEMENT TagoviOglasa (Tag+)>
+<!ELEMENT Tag (#PCDATA)>
+<!ELEMENT Prodavac (ElektronskaPosta)+>
+<!ELEMENT ElektronskaPosta (#PCDATA)>
+<!ATTLIST ElektronskaPosta tip (privatna|sluzbena) "privatni">
