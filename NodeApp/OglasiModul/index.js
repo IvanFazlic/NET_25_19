@@ -31,7 +31,7 @@ exports.addOglas = (noviOglas) => {
 exports.postaviOglas = (id,kategorija,datumistekaoglasa,cena) => {
     let oglasi=this.sviOglasi();
     oglasi.forEach(element => {
-        if(element.id==id && element.kategorija==kategorija && element.datumistekaoglasa==datumistekaoglasa)
+        if(element.id==id && element.kategorija==kategorija && element.datumIstekaOglasa==datumistekaoglasa)
             element.cena=cena;
     });
     snimioglasi(oglasi);
