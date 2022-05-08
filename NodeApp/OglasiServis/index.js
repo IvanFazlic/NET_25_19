@@ -28,11 +28,11 @@ app.delete('/deleteoglas/:id',(request, response)=>{
     oglasiModul.deleteOglas(request.params["id"]);
     response.end("Oglas je obrisan");
 });
-//?
+//radi
 app.get('/getoglasbyelektronskaposta',(request, response)=>{
     response.send(oglasiModul.getOglasByElektronskaPosta(request.query["elektronskaposta"],request.query["tip"]));
 });
-
+//radi
 app.get('/getoglasbyid/:id',(request, response)=>{
     response.send(oglasiModul.getOglas(request.params["id"]));
 })
