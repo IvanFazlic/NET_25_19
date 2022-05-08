@@ -18,12 +18,12 @@ app.post('/dodajoglas',(request, response)=>{
     oglasiModul.addOglas(request.body);
     response.end("Oglas je dodat");
 })
-//?
+//radi
 app.put('/postavicenu/:id/:kategorija/:datumistekaoglasa/:cena',(request, response)=>{
     oglasiModul.postaviOglas(request.params["id"],request.params["kategorija"],request.params["datumistekaoglasa"],request.params["cena"]);
     response.end("Cena je postavljena");
 });
-//?
+//radi
 app.delete('/deleteoglas/:id',(request, response)=>{
     oglasiModul.deleteOglas(request.params["id"]);
     response.end("Oglas je obrisan");

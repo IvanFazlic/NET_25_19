@@ -40,7 +40,7 @@ exports.deleteOglas = (idNum) => {
     snimioglasi(this.sviOglasi().filter(oglas=>oglas.id!=idNum));
 }
 exports.getOglasByElektronskaPosta = (elektronskaposta,tip) =>{
-    return this.sviOglasi().filter(oglas=>oglas.tip.elektronskaposta==elektronskaposta);
+    return this.sviOglasi().filter(oglas=>oglas.prodavac.elektronskaPosta[tip].includes(elektronskaposta));
 }
 exports.getOglas = (id) => {
     return this.sviOglasi().find(x => x.id == id);
