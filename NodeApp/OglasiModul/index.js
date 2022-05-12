@@ -22,6 +22,11 @@ exports.addOglas = (noviOglas) => {
     let nesto={};
     let id=1;
     let oglasi=this.sviOglasi();
+    if(noviOglas.TekstOglasa.length<10 || noviOglas.TekstOglasa.length >180 || noviOglas.TekstOglasa.length=="" || noviOglas.TekstOglasa.length==undefined){
+        return 0
+        // let regex=/[0-9]/
+        // regex.test(noviOglas.DatumIstekaOglasa)
+    }
     if(oglasi.length>0){
         id=oglasi[oglasi.length-1].id+1;
     }
@@ -35,6 +40,7 @@ exports.addOglas = (noviOglas) => {
     nesto.ElektronskaPosta[noviOglas.tip]=noviOglas.ElektronskaPosta;
     oglasi.push(nesto)
     snimioglasi(oglasi);
+    
 }
 exports.postaviOglas = (id,cena) => {
     let oglasi=this.sviOglasi();

@@ -27,7 +27,7 @@ app.get("/svioglasi",(req,res)=>{
             <div>Kategorija: ${element.Kategorija}</div>
             <div>Datum: ${element.DatumIstekaOglasa}</div>
             <div>Cena: ${element.Cena}</div>
-            <div>Tekst oglasa${element.TekstOglasa}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -46,11 +46,11 @@ app.get("/izmeniCenu",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -69,11 +69,11 @@ app.post("/izmeniCenu",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -93,11 +93,11 @@ app.get("/dodajoglas",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -131,11 +131,11 @@ app.get("/filtrirajPostom",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -154,11 +154,11 @@ app.get("/pronadjiPutemID",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
             <a href="/detaljnije/${element.id}">Detaljnije</a>
             <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
@@ -179,13 +179,13 @@ app.get("/getoglasbyelektronskaposta",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
-            <p><a href="/detaljnije/${element.id}">Detaljnije</a></p>
-            <p><a href="/deleteoglas/${element.id}">Obrisi</a></p>
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa: ${element.TekstOglasa}</div>
+            <a href="/detaljnije/${element.id}">Detaljnije</a>
+            <a href="/deleteoglas/${element.id}">Obrisi</a>
             </div>`;
         });
         
@@ -199,11 +199,11 @@ app.get("/getoglasbyid",(req,res)=>{
         let prikaz="";
             prikaz+=`
             <div class="grid-item">
-            <div>${response.data.id}</div>
-            <div>${response.data.Kategorija}</div>
-            <div>${response.data.DatumIstekaOglasa}</div>
-            <div>${response.data.Cena}</div>
-            <div>${response.data.TekstOglasa}</div>
+            <div>ID: ${response.data.id}</div>
+            <div>Kategorija: ${response.data.Kategorija}</div>
+            <div>Datum: ${response.data.DatumIstekaOglasa}</div>
+            <div>Cena: ${response.data.Cena}</div>
+            <div>Tekst oglasa: ${response.data.TekstOglasa}</div>
             <p><a href="/detaljnije/${response.data.id}">Detaljnije</a></p>
             <p><a href="/deleteoglas/${response.data.id}">Obrisi</a></p>
             </div>`;
@@ -219,21 +219,21 @@ app.get("/detaljnije/:id",(req,res)=>{
         let sluzbeno="";
         if(response.data.ElektronskaPosta.sluzbena==undefined){
             response.data.ElektronskaPosta.sluzbena="";
-            privatno="privatna: ";
+            privatno="Privatna pošta: ";
         }
         if(response.data.ElektronskaPosta.privatna==undefined){
             response.data.ElektronskaPosta.privatna="";
-            sluzbeno="sluzbeno: ";
+            sluzbeno="Sluzbena pošta: ";
         }
         let prikaz="";
             prikaz+=`
             <div class="grid-item">
-            <div>${response.data.id}</div>
-            <div>${response.data.Kategorija}</div>
-            <div>${response.data.DatumIstekaOglasa}</div>
-            <div>${response.data.Cena}</div>
-            <div>${response.data.TekstOglasa}</div>
-            <div>${response.data.Tag}</div>
+            <div>ID: ${response.data.id}</div>
+            <div>Kategorija: ${response.data.Kategorija}</div>
+            <div>Datum: ${response.data.DatumIstekaOglasa}</div>
+            <div>Cena: ${response.data.Cena}</div>
+            <div>Tekst oglasa: ${response.data.TekstOglasa}</div>
+            <div>Tag: ${response.data.Tag}</div>
             <div>${sluzbeno}${response.data.ElektronskaPosta.sluzbena}</div>
             <div>${privatno}${response.data.ElektronskaPosta.privatna}</div>
             <a href="/deleteoglas/${response.data.id}">Obrisi</a>
