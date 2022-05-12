@@ -23,6 +23,52 @@ app.get("/svioglasi",(req,res)=>{
         response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
+            <div>ID: ${element.id}</div>
+            <div>Kategorija: ${element.Kategorija}</div>
+            <div>Datum: ${element.DatumIstekaOglasa}</div>
+            <div>Cena: ${element.Cena}</div>
+            <div>Tekst oglasa${element.TekstOglasa}</div>
+            <a href="/detaljnije/${element.id}">Detaljnije</a>
+            <a href="/deleteoglas/${element.id}">Obrisi</a>
+            </div>`;
+        });
+        
+        res.send(procitajPoNazivuStranice("svioglasi").replace("#{data}",prikaz));
+    })
+    .catch(error => {
+        console.log(error);
+    }); 
+});
+app.get("/izmeniCenu",(req,res)=>{
+    axios.get('http://localhost:3000/svioglasi')
+    .then(response => {
+        let prikaz="";
+        response.data.forEach(element => {
+            prikaz+=`
+            <div class="grid-item">
+            <div>${element.id}</div>
+            <div>${element.Kategorija}</div>
+            <div>${element.DatumIstekaOglasa}</div>
+            <div>${element.Cena}</div>
+            <div>${element.TekstOglasa}</div>
+            <a href="/detaljnije/${element.id}">Detaljnije</a>
+            <a href="/deleteoglas/${element.id}">Obrisi</a>
+            </div>`;
+        });
+        
+        res.send(procitajPoNazivuStranice("izmeniCenu").replace("#{data}",prikaz));
+    })
+    .catch(error => {
+        console.log(error);
+    }); 
+});
+app.post("/izmeniCenu",(req,res)=>{
+    axios.put(`http://localhost:3000/izmeniCenu/${req.body.id}/${req.body.cena}`).then(response=>{
+        console.log(response.data.id)
+        let prikaz="";
+        response.data.forEach(element => {
+            prikaz+=`
+            <div class="grid-item">
             <div>${element.id}</div>
             <div>${element.Kategorija}</div>
             <div>${element.DatumIstekaOglasa}</div>
@@ -35,10 +81,9 @@ app.get("/svioglasi",(req,res)=>{
         
         res.send(procitajPoNazivuStranice("svioglasi").replace("#{data}",prikaz));
     })
-    .catch(error => {
-        console.log(error);
-    }); 
+    
 });
+
 
 app.get("/dodajoglas",(req,res)=>{
     

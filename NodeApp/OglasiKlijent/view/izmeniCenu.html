@@ -25,7 +25,7 @@
         .leviDiv{
             position: relative;
             width: 35vw;
-            height: 100vh;
+            height: 85vh;
         }
         .desniDiv{
             position: relative;
@@ -35,7 +35,7 @@
         .forma{
             position: relative;
             width: 500px;
-            height: 85vh;
+            height: 73vh;
             background: linear-gradient(249.03deg, #00FFC2 0%, rgba(0, 255, 194, 0.46) 100%);
             border-radius: 45px;
             margin-top:7vh;
@@ -59,7 +59,7 @@
             display: grid;
         }
         .grid-item {
-            height:220px;
+            height: 220px;
             background-color: white;
             border-radius: 20px;
             padding:20px;
@@ -126,7 +126,9 @@
             font-size: 26px;
         }
         .formaSubmit{
+            
             margin:0px 100px 30px 100px;
+            padding-top: 470px;
         }
         input{
             height: 35px;
@@ -146,6 +148,15 @@
         .margine{
             margin-bottom: 20px;
         }
+        select{
+            height: 35px;
+            width:300px;
+            margin: auto;
+            font-size: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            text-align: center;
+        }
         
     </style>
 </head>
@@ -154,50 +165,42 @@
         <div class="leviDiv">
             <div class="forma">
                 <p class="tekstZaPrikaz">Izaberite jednu od opcija</p>
-                <div class="inline">
-                    <form action="dodajoglas">
-                        <button class="dodajOglas" type="submit">Dodaj oglas</button>
-                    </form>
-                    <form action="error">
-                        <button class="dodajOglas" type="submit">Filtriraj poštom</button>
-                    </form>
-                </div>
-                <div class="inline1">
-                    <form action="error">
-                        <button class="dodajOglas" type="submit">Izmeni cenu oglasa</button>
-                    </form>
-                    <form action="error">
-                        <button class="dodajOglas" type="submit">Pronađi putem ID-a</button>
-                    </form>
-                </div>
-                <div class="inline2">
-                    <p class="formaTekst">Forma</p>
-                </div>
-
-
-
-
                 <div>
-                    <form class="formaSubmit" action="" method="get">
-                        <input class="margine" type="text" placeholder="Unesite ID">
-                    
-                        <input class="margine" type="text" placeholder="">
-                    
-                        <input class="margine" type="text" placeholder="">
-                    </form>
-                    <div class="centerContent">
-                        <button class="dodajOglas formaSubmit" type="submit">Predaj</button>
+                    <div class="inline">
+                        <form action="/dodajOglas">
+                            <button class="dodajOglas" type="submit">Dodaj oglas</button>
+                        </form>
+                        <form action="/filtrirajPostom">
+                            <button class="dodajOglas" type="submit">Filtriraj poštom</button>
+                        </form>
+                    </div>
+                    <div class="inline1">
+                        <form action="/izmeniCenu">
+                            <button class="dodajOglas" type="submit">Izmeni cenu oglasa</button>
+                        </form>
+                        <form action="/pronadjiPutemID">
+                            <button class="dodajOglas" type="submit">Pronađi putem ID-a</button>
+                        </form>
                     </div>
                 </div>
+                <div style="position: absolute;top:400px;left:210px;">
+                    <p class="formaTekst">Forma</p>
+                </div>
+                    <div>
+                        <form class="formaSubmit" action="/izmeniCenu" method="post">
+                            <input class="margine" type="number" placeholder="Unesi ID" name="id" id="id" required>
+                            <input class="margine" type="number" placeholder="Unesi zeljenu cenu" name="cena" id="cena" required>
+                            <div style="margin-left:30px">
+                                <button class="dodajOglas" type="submit">Predaj</button>
+                            </div>
+                        </form>
+                    </div>
             </div>
         </div>
         <div class="desniDiv">
             <div class="grid-conatiner">
                 <h1 class="oglasi">Oglasi</h1>
                 #{data}
-                <div class="grid-item">1</div>
-                <div class="grid-item">1</div>
-                <div class="grid-item">1</div>
             </div>
         </div>
     </div>

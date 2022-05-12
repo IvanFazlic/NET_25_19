@@ -24,9 +24,10 @@ app.get('/dodajoglas',(request, response)=>{
     response.send(oglasiModul.sviOglasi())
 })
 //radi
-app.put('/postavicenu/:id/:kategorija/:datumistekaoglasa/:cena',(request, response)=>{
-    oglasiModul.postaviOglas(request.params["id"],request.params["kategorija"],request.params["datumistekaoglasa"],request.params["cena"]);
-    response.end("Cena je postavljena");
+app.put('/izmeniCenu/:id/:cena',(request, response)=>{
+    // console.log(request.body.data)
+    oglasiModul.postaviOglas(request.params["id"],request.params["cena"]);
+    response.send(oglasiModul.sviOglasi())
 });
 //radi
 app.delete('/deleteoglas/:id',(request, response)=>{

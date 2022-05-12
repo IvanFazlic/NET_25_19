@@ -36,13 +36,13 @@ exports.addOglas = (noviOglas) => {
     oglasi.push(nesto)
     snimioglasi(oglasi);
 }
-exports.postaviOglas = (id,kategorija,datumistekaoglasa,cena) => {
+exports.postaviOglas = (id,cena) => {
     let oglasi=this.sviOglasi();
     oglasi.forEach(element => {
-        if(element.id==id && element.kategorija==kategorija && element.datumIstekaOglasa==datumistekaoglasa)
-            element.cena=cena;
+    if(element.id==id)
+        element.Cena=cena;
     });
-    snimioglasi(oglasi);
+    snimioglasi(oglasi)
 }
 exports.deleteOglas = (idBr) => {
     snimioglasi(this.sviOglasi().filter(oglas=>oglas.id!=idBr));
