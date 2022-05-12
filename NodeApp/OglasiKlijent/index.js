@@ -148,22 +148,20 @@ app.get("/getoglasbyelektronskaposta",(req,res)=>{
     })
 });
 app.get("/getoglasbyid",(req,res)=>{
-    axios.get(`http://localhost:3000/getoglasbyid?id=${req.query["id"]}`)
+    axios.get(`http://localhost:3000/filtrirajpoid?id=${req.query["id"]}`)
     .then(response=>{
         console.log(response)
         let prikaz="";
-        response.data.forEach(element => {
             prikaz+=`
             <div class="grid-item">
-            <div>${element.id}</div>
-            <div>${element.Kategorija}</div>
-            <div>${element.DatumIstekaOglasa}</div>
-            <div>${element.Cena}</div>
-            <div>${element.TekstOglasa}</div>
-            <p><a href="/detaljnije/${element.id}">Detaljnije</a></p>
-            <p><a href="/deleteoglas/${element.id}">Obrisi</a></p>
+            <div>${response.data.id}</div>
+            <div>${response.data.Kategorija}</div>
+            <div>${response.data.DatumIstekaOglasa}</div>
+            <div>${response.data.Cena}</div>
+            <div>${response.data.TekstOglasa}</div>
+            <p><a href="/detaljnije/${response.data.id}">Detaljnije</a></p>
+            <p><a href="/deleteoglas/${response.data.id}">Obrisi</a></p>
             </div>`;
-        });
         
         res.send(procitajPoNazivuStranice("svioglasi").replace("#{data}",prikaz));
     })

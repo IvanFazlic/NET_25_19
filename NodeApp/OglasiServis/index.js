@@ -42,5 +42,8 @@ app.get('/getoglasbyid/:id',(request, response)=>{
     console.log(oglasiModul.getOglas(request.params["id"]))
     response.send(oglasiModul.getOglas(request.params["id"]));
 })
+app.get('/filtrirajpoid',(request, response)=>{
+    response.send(oglasiModul.getOglas(request.query["id"]));
+});
 
 app.listen(port,()=>{console.log(`Server je startovan na portu ${port}`)});
