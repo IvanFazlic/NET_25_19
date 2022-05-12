@@ -1,0 +1,19 @@
+{
+  "name": "oglasimodul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanFazlic/NET_25_19.git"
+  },
+  "author": "NET_25_19",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanFazlic/NET_25_19/issues"
+  },
+  "homepage": "https://github.com/IvanFazlic/NET_25_19#readme"
+}
