@@ -1,3 +1,4 @@
+const { response } = require('express');
 var express = require('express');
 var oglasiModul=require('OglasiModul');
 var app = express();
@@ -7,7 +8,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/',(request, response)=>{
-    response.send("Server je podignut na portu 3000");
+    response.send("Server radi");
 });
 //radi
 app.get('/svioglasi',(request, response)=>{
@@ -17,6 +18,10 @@ app.get('/svioglasi',(request, response)=>{
 app.post('/dodajoglas',(request, response)=>{
     oglasiModul.addOglas(request.body);
     response.end("Oglas je dodat");
+})
+//radi
+app.get('/dodajoglas',(request, response)=>{
+    response.send(oglasiModul.sviOglasi())
 })
 //radi
 app.put('/postavicenu/:id/:kategorija/:datumistekaoglasa/:cena',(request, response)=>{
@@ -30,11 +35,12 @@ app.delete('/deleteoglas/:id',(request, response)=>{
 });
 //radi
 app.get('/getoglasbyelektronskaposta',(request, response)=>{
-    response.send(oglasiModul.getOglasByElektronskaPosta(request.query["elektronskaposta"],request.query["tip"]));
+    response.send(oglasiModul.getOglasByElektronskaPosta(request.query["elektronskaposta"], request.query["dugme"]));
 });
 //radi
 app.get('/getoglasbyid/:id',(request, response)=>{
+    console.log(oglasiModul.getOglas(request.params["id"]))
     response.send(oglasiModul.getOglas(request.params["id"]));
 })
 
-app.listen(port,()=>{console.log(`startovan server na portu ${port}`)});
+app.listen(port,()=>{console.log(`Server je startovan na portu ${port}`)});

@@ -19,13 +19,21 @@ exports.sviOglasi = () => {
     return procitajPodatkeIzFajla();
 }
 exports.addOglas = (noviOglas) => {
+    let nesto={};
     let id=1;
     let oglasi=this.sviOglasi();
     if(oglasi.length>0){
         id=oglasi[oglasi.length-1].id+1;
     }
-    noviOglas.id=id;
-    oglasi.push(noviOglas)
+    nesto.id=id;
+    nesto.Kategorija=noviOglas.Kategorija
+    nesto.DatumIstekaOglasa=noviOglas.DatumIstekaOglasa
+    nesto.Cena=noviOglas.Cena
+    nesto.TekstOglasa=noviOglas.TekstOglasa
+    nesto.Tag=noviOglas.Tag
+    nesto.ElektronskaPosta={}
+    nesto.ElektronskaPosta[noviOglas.tip]=noviOglas.ElektronskaPosta;
+    oglasi.push(nesto)
     snimioglasi(oglasi);
 }
 exports.postaviOglas = (id,kategorija,datumistekaoglasa,cena) => {
@@ -36,11 +44,12 @@ exports.postaviOglas = (id,kategorija,datumistekaoglasa,cena) => {
     });
     snimioglasi(oglasi);
 }
-exports.deleteOglas = (idNum) => {
-    snimioglasi(this.sviOglasi().filter(oglas=>oglas.id!=idNum));
+exports.deleteOglas = (idBr) => {
+    snimioglasi(this.sviOglasi().filter(oglas=>oglas.id!=idBr));
 }
-exports.getOglasByElektronskaPosta = (elektronskaposta,tip) =>{
-    return this.sviOglasi().filter(oglas=>oglas.prodavac.elektronskaPosta[tip].includes(elektronskaposta));
+exports.getOglasByElektronskaPosta = (elektronskaposta,dugme) =>{
+    // console.log(elektronskaposta, dugme)
+    return this.sviOglasi().filter(oglas=>oglas.ElektronskaPosta[dugme]==elektronskaposta);
 }
 exports.getOglas = (id) => {
     return this.sviOglasi().find(x => x.id == id);
