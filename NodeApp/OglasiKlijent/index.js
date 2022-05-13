@@ -226,7 +226,7 @@ app.get("/detaljnije/:id",(req,res)=>{
         }
         if(response.data.ElektronskaPosta.privatna==undefined){
             response.data.ElektronskaPosta.privatna="";
-            sluzbeno="Sluzbena pošta: ";
+            sluzbeno="Službena pošta: ";
         }
         let prikaz="";
             prikaz+=`
