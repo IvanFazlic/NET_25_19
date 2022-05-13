@@ -195,8 +195,11 @@ app.get("/getoglasbyelektronskaposta",(req,res)=>{
 app.get("/getoglasbyid",(req,res)=>{
     axios.get(`http://localhost:3000/filtrirajpoid?id=${req.query["id"]}`)
     .then(response=>{
-        console.log(response)
         let prikaz="";
+        if(response.data.id==undefined){
+            prikaz="";
+        }
+        else{
             prikaz+=`
             <div class="grid-item">
             <div>ID: ${response.data.id}</div>
@@ -207,7 +210,7 @@ app.get("/getoglasbyid",(req,res)=>{
             <p><a href="/detaljnije/${response.data.id}">Detaljnije</a></p>
             <p><a href="/deleteoglas/${response.data.id}">Obrisi</a></p>
             </div>`;
-        
+        }
         res.send(procitajPoNazivuStranice("svioglasi").replace("#{data}",prikaz));
     })
 });
@@ -223,7 +226,7 @@ app.get("/detaljnije/:id",(req,res)=>{
         }
         if(response.data.ElektronskaPosta.privatna==undefined){
             response.data.ElektronskaPosta.privatna="";
-            sluzbeno="Sluzbena pošta: ";
+            sluzbeno="Službena pošta: ";
         }
         let prikaz="";
             prikaz+=`
