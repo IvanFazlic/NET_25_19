@@ -1,2 +1,1 @@
-API built in Node.js, also one of my first git projects.
-Also XML
+API built in Node.js and XML. One of my first git projects.
